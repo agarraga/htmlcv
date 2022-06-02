@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cv.xsl"?>
 <!DOCTYPE cv SYSTEM "cv.dtd">
 <cv>
   <lang></lang>
@@ -7,8 +8,7 @@
     <dob></dob>
     <address>
       <line1></line1>
-      <line2></line2>
-    </address>
+      <line2></line2> </address>
     <tlf></tlf>
     <email></email>
     <github></github>
