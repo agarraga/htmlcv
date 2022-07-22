@@ -1,0 +1,162 @@
+@font-face {
+  font-family: PublicSans-Regular;
+  src: url('fonts/PublicSans-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: PublicSans-SemiBold;
+  src: url('fonts/PublicSans-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: PublicSans-Bold;
+  src: url('fonts/PublicSans-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: FiraSans-Bold;
+  src: url('fonts/FiraSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: FiraSans-SemiBold;
+  src: url('fonts/FiraSans-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: SpaceGrotesk-Medium;
+  src: url('fonts/SpaceGrotesk-Medium.otf') format('opentype');
+}
+
+body {
+  background: #1e1e1e;
+}
+
+h1 {
+  font-family: FiraSans-Bold;
+}
+
+h2 {
+  font-family: SpaceGrotesk-Medium;
+  padding: 2pt 4pt;
+  margin: 2pt;
+  margin-bottom: 6pt;
+  background: #1e1e1e;
+  color: #ffeeee;
+  border-radius: 4pt;
+  text-shadow: 2px 2px black;
+}
+
+h5 {
+  font-family: FiraSans-Bold;
+  display: inline;
+}
+
+h6 {
+  font-family: FiraSans-SemiBold;
+  display: inline;
+  font-size: 8.5pt;
+  padding: 1pt 3pt;
+}
+
+/* p {} */
+
+.date {
+  background: white;
+  padding: 1pt 2pt;
+  border-left: solid 3pt #223311; 
+}
+
+.description {
+  font-family: PublicSans-SemiBold;
+  font-size: 16px;
+  margin: 2pt;
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 2pt;
+  border-radius: 4pt;
+}
+
+.info-text {
+  font-family: PublicSans-Bold;
+  font-size: 16px;
+  margin: 2pt;
+}
+
+.location {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border-right: solid 3px white;
+}
+
+.main-name {
+  background: #1e1e1e;
+  color: #f1f1f1;
+}
+
+.secondary-name {
+  background: #f1f1f1;
+  color: #1e1e1e;
+}
+
+.section {
+  padding: 8pt;
+  margin: 4pt;
+  border-radius: 8pt;
+}
+
+.skill-name {
+  font-size: 12pt;
+  background: white;
+  padding: 2pt 4pt;
+  border-left: solid 3pt blue;
+}
+
+#fullname {
+  font-size: 36px;
+  margin: 2pt;
+  text-shadow: 2px 2px #fff855;
+}
+
+#info {
+  background: #00ff66;
+}
+
+#info-description {
+  background: #ccffee;
+  padding: 2pt 4pt;
+}
+
+#learns {
+  background: #44aaff;
+}
+
+#left-info {
+  text-align: left;
+  float: left;
+}
+
+#miscs {
+  background: #dd66cc;
+}
+
+#right-info {
+  text-align: right;
+  float: right;
+}
+
+#skills {
+  background: #ffee44;
+}
+
+#works {
+  background: #ff8844;
+}
+
+/* @media print { */
+/*     body{ */
+/*         width: 21cm; */
+/*         height: 29.7cm; */
+/*         margin: 24mm 38mm; */ 
+/*    } */
+/* } */
