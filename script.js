@@ -18,16 +18,44 @@ function getJsonData(path) {
 }
 
 const cvdata = getJsonData('cv-data.json');
-console.log(cvdata);
+
+function info(info) {
+    return `
+        <h1 id="fullname">${info.fullname}</h1>
+        <div>
+            <div id="left-info">
+                <p class="info-text">
+                    ${info.dob}<br>
+                    ${info.address.join('<br>')}
+                </p>
+            </div>
+            <div id="right-info">
+                <p class="info-text">
+                    ${info.tlf}<br>
+                    ${info.email}<br>
+                    ${info.github}<br>
+                </p>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div>
+            <p class="description" id="info-description">${info.intro}</p>
+        </div>
+    `;
+}
 
 function workTemplate(work) {
-    return `
-    <h6 class="date">${work.dates.start} | ${work.dates.end}</h6>
-    <h6 class="main-name">${work.employer}</h6>
-    <h6 class="secondary-name">${work.position}</h6>
-    <h6 class="location">${work.location}</h6>
-    <p class="description">${work.description}</p>
-    `
+    const start_date = new Date(work.dates.start);
+    const from_date = new Date("2019-01-01");
+    if (start_date > from_date) {
+        return `
+        <h6 class="date">${work.dates.start} | ${work.dates.end}</h6>
+        <h6 class="main-name">${work.employer}</h6>
+        <h6 class="secondary-name">${work.position}</h6>
+        <h6 class="location">${work.location}</h6>
+        <p class="description">${work.description}</p>
+        `;
+    }
 }
 
 function learnTemplate(learn) {
@@ -37,49 +65,48 @@ function learnTemplate(learn) {
     <h6 class="secondary-name">${learn.institution}</h6>
     <h6 class="location">${learn.location}</h6>
     <p class="description">${learn.description}</p>
-    `
+    `;
+}
+
+function concise_github_link(url) {
+    const indexOfSubStr = url.lastIndexOf("/") + 1;
+    return url.substring(indexOfSubStr);
 }
 
 function skillTemplate(skill) {
-    return `
-    <h5 class="skill-name">${skill.name}</h5>
-    <h6 class="main-name">${skill.level}</h6>
-    <h6 class="secondary-name">${skill.specificities}</h6>
-    <p class="description">${skill.description}</p>
-    `
+    var level_name;
+    if (skill.level === 0) {
+        level_name = cvdata.meta.level_name.low;
+    } else if (skill.level === 1) {
+        level_name = cvdata.meta.level_name.medium;
+    } else if (skill.level === 2) {
+        level_name = cvdata.meta.level_name.high;
+    }
+    if (skill.level === 1 | skill.level === 2) {
+        return `
+        <h5 class="skill-name">${skill.name}</h5>
+        <h6 class="main-name">${level_name}</h6>
+        ${skill.specificities ?
+            `<h6 class="secondary-name">${skill.specificities}</h6>`: "" }
+        <p class="description">
+            ${skill.description} <br>
+            ${skill.links.map(link =>
+            `<a href="${link}">:${concise_github_link(link)}<a/>`).join('<br>')}
+        </p>
+        `;
+    }
 }
 
 function miscTemplate(misc) {
     return `
     <h5 class="skill-name">${misc.name}</h5>
     <p class="description">${misc.description}</p>
-    `
+    `;
 }
-
 
 document.getElementById("app").innerHTML = `
     <div class="section" id="info">
-        <h1 id="fullname">${cvdata.info.fullname}</h1>
-        <div>
-            <div id="left-info">
-                <p class="info-text">
-                    ${cvdata.info.dob}<br>
-                    ${cvdata.info.dni}<br>
-                    ${cvdata.info.address.join('<br>')}
-                </p>
-            </div>
-            <div id="right-info">
-                <p class="info-text">
-                    ${cvdata.info.tlf}<br>
-                    ${cvdata.info.email}<br>
-                    ${cvdata.info.github}<br>
-                </p>
-            </div>
-        </div>
-        <div style="clear: both;"></div>
-        <div>
-            <p class="description" id="info-description">${cvdata.info.intro}</p>
-        </div>
+        ${info(cvdata.info)}
     </div>
     <div class="section" id="works">
         <h2 class="section-title">${cvdata.works.section_title}</h2>

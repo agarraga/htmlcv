@@ -1,3 +1,12 @@
+/* 
+ * Yellow :ffee44
+ * Blue   :44aaff
+ * Orange :ff8844
+ * Green  :00ee66
+ * Purple :dd66cc
+ * black  :
+ * Grey   :
+ */
 @font-face {
   font-family: PublicSans-Regular;
   src: url('fonts/PublicSans-Regular.otf') format('opentype');
@@ -74,7 +83,6 @@ h6 {
   text-align: justify;
   text-justify: inter-word;
   padding: 2pt;
-  border-radius: 4pt;
 }
 
 .info-text {
@@ -101,34 +109,37 @@ h6 {
 
 .section {
   padding: 8pt;
-  margin: 4pt;
+  margin: 6pt;
   border-radius: 8pt;
 }
 
 .skill-name {
   font-size: 12pt;
+  color: black;
   background: white;
   padding: 2pt 4pt;
-  border-left: solid 3pt blue;
+  border-left: solid 3pt black;
 }
 
 #fullname {
+  color: black;
   font-size: 36px;
   margin: 2pt;
-  text-shadow: 2px 2px #fff855;
+  text-shadow: 3px 3px #ffffee;
 }
 
 #info {
-  background: #00ff66;
+  background: #ff8844;
 }
 
 #info-description {
-  background: #ccffee;
+  background: #ffffee;
   padding: 2pt 4pt;
+  border-radius: 4pt;
 }
 
 #learns {
-  background: #44aaff;
+  background: #ffee44;
 }
 
 #left-info {
@@ -137,7 +148,7 @@ h6 {
 }
 
 #miscs {
-  background: #dd66cc;
+  background: #00ee88;
 }
 
 #right-info {
@@ -146,11 +157,11 @@ h6 {
 }
 
 #skills {
-  background: #ffee44;
+  background: #dd66cc;
 }
 
 #works {
-  background: #ff8844;
+  background: #44aaff;
 }
 
 /* @media print { */
