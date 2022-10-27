@@ -1,23 +1,12 @@
-// Not gonna lie, I've tried to do this with `fetch()` and `response.json()`
-// but I get caught in a `promise` rabbit hole that I can't get out of. So I'm
-// doing it with a synchronous `XMLHttpRequest`, which apparently is a big no
-// no.
-// TODO make the non-naive way with `fetch()` work.
+const cvdata_path = './cv-data.json';
 
-// async function getJsonData(path) {
-//     const response = await fetch(path);
-//     const data = await response.json();
-//     return  data;
-// }
-
-function getJsonData(path) {
-    var request = new XMLHttpRequest();
-    request.open("GET", path, false);
-    request.send();
-    return JSON.parse(request.responseText);
+async function getCVData(url) {
+    const res = await fetch(url);
+    const cvdata = await res.json();
+    loadcv(cvdata);
 }
 
-const cvdata = getJsonData('cv-data.json');
+getCVData(cvdata_path);
 
 function info(info) {
     return `
@@ -73,14 +62,14 @@ function concise_github_link(url) {
     return url.substring(indexOfSubStr);
 }
 
-function skillTemplate(skill) {
-    var level_name;
+function skillTemplate(skill, meta) {
+    let level_name;
     if (skill.level === 0) {
-        level_name = cvdata.meta.level_name.low;
+        level_name = meta.level_name.low;
     } else if (skill.level === 1) {
-        level_name = cvdata.meta.level_name.medium;
+        level_name = meta.level_name.medium;
     } else if (skill.level === 2) {
-        level_name = cvdata.meta.level_name.high;
+        level_name = meta.level_name.high;
     }
     if (skill.level === 1 | skill.level === 2) {
         return `
@@ -104,24 +93,26 @@ function miscTemplate(misc) {
     `;
 }
 
-document.getElementById("app").innerHTML = `
-    <div class="section" id="info">
-        ${info(cvdata.info)}
-    </div>
-    <div class="section" id="works">
-        <h2 class="section-title">${cvdata.works.section_title}</h2>
-        ${cvdata.works.work.map(workTemplate).join('')}
-    </div>
-    <div class="section" id="learns">
-        <h2 class="section-title">${cvdata.learns.section_title}</h2>
-        ${cvdata.learns.learn.map(learnTemplate).join('')}
-    </div>
-    <div class="section" id="skills">
-        <h2 class="section-title">${cvdata.skills.section_title}</h2>
-        ${cvdata.skills.skill.map(skillTemplate).join('')}
-    </div>
-    <div class="section" id="miscs">
-        <h2 class="section-title">${cvdata.miscs.section_title}</h2>
-        ${cvdata.miscs.misc.map(miscTemplate).join('')}
-    </div>
-`;
+function loadcv(cvdata) {
+    document.getElementById("app").innerHTML = `
+        <div class="section" id="info">
+            ${info(cvdata.info)}
+        </div>
+        <div class="section" id="works">
+            <h2 class="section-title">${cvdata.works.section_title}</h2>
+            ${cvdata.works.work.map(workTemplate).join('')}
+        </div>
+        <div class="section" id="learns">
+            <h2 class="section-title">${cvdata.learns.section_title}</h2>
+            ${cvdata.learns.learn.map(learnTemplate).join('')}
+        </div>
+        <div class="section" id="skills">
+            <h2 class="section-title">${cvdata.skills.section_title}</h2>
+            ${cvdata.skills.skill.map(skill => skillTemplate(skill, cvdata.meta)).join('')}
+        </div>
+        <div class="section" id="miscs">
+            <h2 class="section-title">${cvdata.miscs.section_title}</h2>
+            ${cvdata.miscs.misc.map(miscTemplate).join('')}
+        </div>
+    `;
+}

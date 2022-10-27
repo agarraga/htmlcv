@@ -1,0 +1,23 @@
+{
+  "name": "htmlcv",
+  "version": "0.1.0",
+  "description": "Easily appendable HTML CV",
+  "main": "index.html",
+  "scripts": {
+    "run": "browser-sync start --server --files .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agarrigu/htmlcv.git"
+  },
+  "author": "agarrigu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agarrigu/htmlcv/issues"
+  },
+  "homepage": "https://github.com/agarrigu/htmlcv#readme",
+  "dependencies": {
+    "browser-sync": "^2.27.10"
+  }
+}
