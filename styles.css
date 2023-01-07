@@ -1,12 +1,15 @@
-/* 
- * Yellow :ffee44
- * Blue   :44aaff
- * Orange :ff8844
- * Green  :00ee66
- * Purple :dd66cc
- * black  :
- * Grey   :
- */
+:root {
+  --yellow: #ffee44;
+  --blue:   #44aaff;
+  --orange: #ff8844;
+  --green:  #00ee66;
+  --purple: #dd66cc;
+  --off-white:  #f1f1f1;
+  --dark-green: #331122;
+  --dark-grey:  #1e1e1e;
+  --off-black:  #ffffee;
+}
+
 @font-face {
   font-family: PublicSans-Regular;
   src: url('fonts/PublicSans-Regular.otf') format('opentype');
@@ -38,7 +41,7 @@
 }
 
 body {
-  background: #1e1e1e;
+  background: var(--dark-grey);
 }
 
 h1 {
@@ -50,10 +53,10 @@ h2 {
   padding: 2pt 4pt;
   margin: 2pt;
   margin-bottom: 6pt;
-  background: #1e1e1e;
-  color: #ffeeee;
+  background: var(--dark-grey);
+  color: var(--yellow);
   border-radius: 4pt;
-  text-shadow: 2px 2px black;
+  text-shadow: 2px 2px var(--off-black);
 }
 
 h5 {
@@ -71,9 +74,9 @@ h6 {
 /* p {} */
 
 .date {
-  background: white;
+  background: var(--off-white);
   padding: 1pt 2pt;
-  border-left: solid 3pt #223311; 
+  border-left: solid 3pt var(--dark-green);
 }
 
 .description {
@@ -92,19 +95,19 @@ h6 {
 }
 
 .location {
-  background: #1e1e1e;
-  color: #f1f1f1;
-  border-right: solid 3px white;
+  background: var(--dark-grey);
+  color: var(--off-white);
+  border-right: solid 3px var(--off-white);
 }
 
 .main-name {
-  background: #1e1e1e;
-  color: #f1f1f1;
+  background: var(--dark-grey);
+  color: var(--off-white);
 }
 
 .secondary-name {
-  background: #f1f1f1;
-  color: #1e1e1e;
+  background: var(--off-white);
+  color: var(--dark-grey);
 }
 
 .section {
@@ -115,31 +118,31 @@ h6 {
 
 .skill-name {
   font-size: 12pt;
-  color: black;
-  background: white;
+  color: var(--off-black);
+  background: var(--off-white);
   padding: 2pt 4pt;
-  border-left: solid 3pt black;
+  border-left: solid 3pt var(--off-black);
 }
 
 #fullname {
-  color: black;
+  color: var(--off-black);
   font-size: 36px;
   margin: 2pt;
-  text-shadow: 3px 3px #ffffee;
+  text-shadow: 3px 3px var(--off-black);
 }
 
 #info {
-  background: #ff8844;
+  background: var(--orange);
 }
 
 #info-description {
-  background: #ffffee;
+  background: var(--off-black);
   padding: 2pt 4pt;
   border-radius: 4pt;
 }
 
 #learns {
-  background: #ffee44;
+  background: var(--yellow);
 }
 
 #left-info {
@@ -148,7 +151,7 @@ h6 {
 }
 
 #miscs {
-  background: #00ee88;
+  background: var(--green);
 }
 
 #right-info {
@@ -157,11 +160,11 @@ h6 {
 }
 
 #skills {
-  background: #dd66cc;
+  background: var(--purple);
 }
 
 #works {
-  background: #44aaff;
+  background: var(--blue);
 }
 
 /* @media print { */
