@@ -1,13 +1,15 @@
 :root {
-  --yellow: #ffee44;
-  --blue:   #44aaff;
-  --orange: #ff8844;
-  --green:  #00ee66;
-  --purple: #dd66cc;
+  --yellow: #f0e040;
+  --blue:   #40a0f0;
+  --orange: #f08040;
+  --green:  #00e060;
+  --purple: #c050b0;
   --off-white:  #f1f1f1;
   --dark-green: #331122;
   --dark-grey:  #1e1e1e;
-  --off-black:  #ffffee;
+  --dark-blue:  #2030a0;
+  --white:  #ffffee;
+  --black:  #0a0a0a;
 }
 
 @font-face {
@@ -54,9 +56,9 @@ h2 {
   margin: 2pt;
   margin-bottom: 6pt;
   background: var(--dark-grey);
-  color: var(--yellow);
+  color: var(--off-white);
   border-radius: 4pt;
-  text-shadow: 2px 2px var(--off-black);
+  text-shadow: 2px 2px var(--dark-green);
 }
 
 h5 {
@@ -72,16 +74,20 @@ h6 {
 }
 
 /* p {} */
+a {
+  color: var(--dark-blue);
+}
 
 .date {
   background: var(--off-white);
   padding: 1pt 2pt;
-  border-left: solid 3pt var(--dark-green);
+  border-left: solid 3pt var(--dark-grey);
 }
 
 .description {
   font-family: PublicSans-SemiBold;
   font-size: 16px;
+  color: var(--black);
   margin: 2pt;
   text-align: justify;
   text-justify: inter-word;
@@ -91,6 +97,7 @@ h6 {
 .info-text {
   font-family: PublicSans-Bold;
   font-size: 16px;
+  color: var(--black);
   margin: 2pt;
 }
 
@@ -118,17 +125,17 @@ h6 {
 
 .skill-name {
   font-size: 12pt;
-  color: var(--off-black);
+  color: var(--dark-grey);
   background: var(--off-white);
   padding: 2pt 4pt;
-  border-left: solid 3pt var(--off-black);
+  border-left: solid 3pt var(--dark-grey);
 }
 
 #fullname {
-  color: var(--off-black);
+  color: var(--dark-grey);
   font-size: 36px;
   margin: 2pt;
-  text-shadow: 3px 3px var(--off-black);
+  text-shadow: 3px 3px var(--white);
 }
 
 #info {
@@ -136,7 +143,7 @@ h6 {
 }
 
 #info-description {
-  background: var(--off-black);
+  background: var(--white);
   padding: 2pt 4pt;
   border-radius: 4pt;
 }
